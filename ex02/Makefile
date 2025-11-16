@@ -1,8 +1,9 @@
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = iter
+NAME = ArrayClass
 
-INC = iter.hpp
+INC =	Array.hpp \
+		Array.tpp
 
 SRC = main.cpp
 
@@ -22,6 +23,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean all
+re: fclean  all
 
-.PHONY: clean fclean re
+.PHONY: all clean fclean re

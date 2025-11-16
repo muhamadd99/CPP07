@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/13 22:53:04 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/15 23:38:04 by mbani-ya         ###   ########.fr       */
+/*   Created: 2025/11/15 23:37:12 by mbani-ya          #+#    #+#             */
+/*   Updated: 2025/11/16 01:20:16 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 template<typename T>
-void	swap(T& a, T& b)
-{
-	T temp = a;
-	a = b;
-	b = temp;
-}
+class Array {
+private:
+	T*				_elements;
+	unsigned int	_size;
+	
+public:
+	Array();
+	Array(unsigned int n);
+	Array(const Array& other);
+	Array& operator=(const Array& other);
+	~Array();
+	unsigned int	size() const;
+	T& operator[](unsigned int index);
+	const T& operator[](unsigned int index) const;
+};
 
-template<typename T>
-T min(const T& a, const T& b)
-{
-	return (a < b) ? a : b; 
-}
-
-template<typename T>
-T max(const T& a, const T& b)
-{
-	return (a > b) ? a : b;
-}
+#include "Array.tpp" //a method to separate template class def but visible to compiler
 
 #endif
